@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- ====== 联系页面 ====== -->
+<section class="page-hero d-flex align-items-center">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">联系我</h1>
+        <p class="lead">有任何问题或合作意向，欢迎给我留言</p>
+    </div>
+</section>
+
+<section class="section contact-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+
+                <!-- 提示消息 -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            <i class="bi {% if category == 'success' %}bi-check-circle{% else %}bi-exclamation-triangle{% endif %}"></i>
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="关闭"></button>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <!-- 联系表单 -->
+                <div class="card shadow">
+                    <div class="card-body p-4">
+                        <form method="POST" action="{{ url_for('contact') }}">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">你的名字 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="请输入你的名字" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">邮箱地址 <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="your@email.com" required>
+                                <div class="form-text">我不会将你的邮箱用于任何其他用途。</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label">留言内容 <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="message" name="message" rows="6"
+                                          placeholder="写你想说的话……" required></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-send"></i> 发送消息
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 其他联系方式 -->
+                <div class="row mt-4 g-3 text-center">
+                    {% if data.email %}
+                    <div class="col-md-4">
+                        <div class="contact-info-card p-3">
+                            <i class="bi bi-envelope-at display-6 text-primary"></i>
+                            <h6 class="mt-2">邮箱</h6>
+                            <a href="mailto:{{ data.email }}" class="small">{{ data.email }}</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if data.github %}
+                    <div class="col-md-4">
+                        <div class="contact-info-card p-3">
+                            <i class="bi bi-github display-6 text-primary"></i>
+                            <h6 class="mt-2">GitHub</h6>
+                            <a href="{{ data.github }}" target="_blank" class="small">查看主页</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if data.location %}
+                    <div class="col-md-4">
+                        <div class="contact-info-card p-3">
+                            <i class="bi bi-geo-alt display-6 text-primary"></i>
+                            <h6 class="mt-2">所在地</h6>
+                            <span class="small">{{ data.location }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

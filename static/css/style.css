@@ -1,0 +1,301 @@
+/* ===================================================
+   简历网站自定义样式
+   基于 Bootstrap 5 · 深蓝 + 白色主题
+   =================================================== */
+
+/* ---------- 全局 ---------- */
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --section-bg: #ffffff;
+    --light-bg: #f8f9fa;
+}
+
+html {
+    scroll-padding-top: 70px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+    color: #333;
+    padding-top: 56px;
+}
+
+/* ---------- 导航栏 ---------- */
+#mainNav {
+    background: transparent;
+    transition: background 0.3s ease;
+    padding: 0.75rem 0;
+}
+
+#mainNav.navbar-scrolled {
+    background: var(--primary-color) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 0.25rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+    opacity: 0.85;
+}
+
+/* ---------- 首屏 Hero ---------- */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: #fff;
+    padding-top: 56px;
+}
+
+.hero-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+.hero-avatar-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.hero-title {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    opacity: 0.75;
+    max-width: 600px;
+    margin: 1rem auto 0;
+}
+
+/* ---------- 通用 Section ---------- */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
+}
+
+.subsection-title {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* ---------- 关于我 ---------- */
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    color: #555;
+}
+
+/* ---------- 时间线 ---------- */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--accent-color);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -1.65rem;
+    top: 1.25rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.timeline-content .card-body ul {
+    padding-left: 1.2rem;
+}
+
+.timeline-content .card-body ul li {
+    margin-bottom: 0.35rem;
+    line-height: 1.6;
+}
+
+/* ---------- 技能卡片 ---------- */
+.skill-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.skill-card .card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.skill-badge {
+    background: #e8f4fd;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem;
+    border-radius: 20px;
+}
+
+/* ---------- 项目卡片 ---------- */
+.project-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.project-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.tech-badge {
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 0.3rem 0.7rem;
+    margin: 0.15rem;
+    border-radius: 4px;
+}
+
+/* ---------- 联系页面 ---------- */
+.page-hero {
+    min-height: 30vh;
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: #fff;
+}
+
+.contact-section {
+    padding: 3rem 0 5rem;
+}
+
+.contact-info-card {
+    background: var(--light-bg);
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-2px);
+}
+
+.contact-info-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.contact-info-card a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- 页脚 ---------- */
+.footer {
+    background: var(--primary-color);
+    color: #ccc;
+}
+
+.footer-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: #fff;
+}
+
+/* ---------- 响应式微调 ---------- */
+@media (max-width: 768px) {
+    .hero-name {
+        font-size: 2.2rem;
+    }
+
+    .hero-avatar,
+    .hero-avatar-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+}
